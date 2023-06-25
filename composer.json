@@ -1,0 +1,16 @@
+{
+    "name": "kphcdr/kconf",
+    "authors": [
+        {
+            "name": "kphcdr",
+            "email": "kphcdr@163.com"
+        }
+    ],
+    "require": {
+        "ext-curl": "*",
+        "psr/simple-cache": "*"
+    },
+    "autoload": {
+        "psr-4": {"Kconf\\": "src"}
+    }
+}
