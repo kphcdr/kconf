@@ -15,9 +15,13 @@ class Kconf
     protected $cache;
     private $url = "https://kconf.kphcdr.com/api/config?appkey=%s&env=%s&password=%s";
 
-    public function __construct(CacheInterface $cache, $app, $env, $password = "")
+    public function __construct(?CacheInterface $cache, $app, $env, $password = "")
     {
-        $this->cache = $cache;
+        if(is_null($cache)) {
+            $this->cache = new Cache();
+        } else {
+            $this->cache = $cache;
+        }
         $this->app = $app;
         $this->env = $env;
         $this->password = $password;
