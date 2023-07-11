@@ -3,9 +3,10 @@
 
 ``` php
         //store config
-        $r = (new Kconf(Cache::repository(Cache::getStore()), config("app.name"), $this->app->environment(), 123456))->setNeedCache(false)->try();
-
+        $r = (new Kconf(\Illuminate\Support\Facades\Cache::repository(\Illuminate\Support\Facades\Cache::getStore()), config("app.name"), $this->app->environment(), 1234))->setNeedCache($this->app->environment("production"))->try();
         if ($c = Arr::get($r, 'data.config')) {
-            config(["kconf" => $c]);
+            config([
+                "kconf"=>$c
+            ]);
         }
 ```
